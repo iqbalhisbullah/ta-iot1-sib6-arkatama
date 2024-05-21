@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    Ini Dashboard
+    Ini Led Control
 @endsection
