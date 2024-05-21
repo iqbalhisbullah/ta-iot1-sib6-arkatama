@@ -8,7 +8,11 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('layouts.dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/tes', function () {
+    return view('pages.tes');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
