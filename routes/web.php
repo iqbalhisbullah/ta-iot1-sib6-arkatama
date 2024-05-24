@@ -8,23 +8,28 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return view('layouts.dashboard');
+    $title = 'Dashboard';
+    return view('layouts.dashboard', compact('title'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/dashboard', function () {
-    return view('pages.dashboard');
+    $title = 'Dashboard';
+    return view('pages.dashboard', compact('title'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/sensor', function () {
-    return view('pages.sensor');
+    $title = 'Sensor';
+    return view('pages.sensor', compact('title'));
 })->middleware(['auth', 'verified'])->name('sensor');
 
 Route::get('/ledcontrol', function () {
-    return view('pages.led');
+    $title = 'LED Control';
+    return view('pages.led', compact('title'));
 })->middleware(['auth', 'verified'])->name('led');
 
 Route::get('/user', function () {
-    return view('pages.user');
+    $title = 'User';
+    return view('pages.user', compact('title'));
 })->middleware(['auth', 'verified'])->name('user');
 
 Route::middleware('auth')->group(function () {
