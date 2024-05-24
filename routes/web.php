@@ -8,9 +8,9 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    $title = 'Dashboard';
-    return view('layouts.dashboard', compact('title'));
-})->middleware(['auth', 'verified'])->name('dashboard');
+    $title = 'Welcome Page';
+    return view('pages.home', compact('title'));
+})->middleware(['auth', 'verified'])->name('home');
 
 Route::get('/dashboard', function () {
     $title = 'Dashboard';

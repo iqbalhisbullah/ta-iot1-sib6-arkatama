@@ -1,8 +1,14 @@
 <div class="iq-sidebar">
+    <style>
+        .iq-sidebar {
+            width: 270px;
+        }
+    </style>
+
     <div class="iq-sidebar-logo d-flex justify-content-between">
-        <a href="{{ route('dashboard') }}">
+        <a href="{{ route('home') }}">
             <img src="images/qbal.png" class="img-fluid" alt="">
-            <span>Qbal</span>
+            <span>Qbaltech</span>
         </a>
         <div class="iq-menu-bt align-self-center">
             <div class="wrapper-menu">

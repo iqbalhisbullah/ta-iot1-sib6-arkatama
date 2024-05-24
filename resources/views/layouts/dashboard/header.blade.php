@@ -12,7 +12,7 @@
           <h5 class="mb-0">{{ $title }}</h5>
           <nav aria-label="breadcrumb">
              <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ $title }}</li>
              </ul>
           </nav>
