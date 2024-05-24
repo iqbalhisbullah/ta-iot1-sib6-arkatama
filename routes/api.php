@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\DatasensorController;
 use App\Http\Controllers\DataaktuatorController;
+use App\Http\Controllers\NotificationController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -29,3 +30,10 @@ Route::post('/dataaktuator', [DataaktuatorController::class, 'store']);
 Route::get('/dataaktuator/{id}', [DataaktuatorController::class, 'show']);
 Route::put('/dataaktuator/{id}', [DataaktuatorController::class, 'update']);
 Route::delete('/dataaktuator/{id}', [DataaktuatorController::class,'destroy']);
+
+
+Route::get('/notification', [NotificationController::class, 'index']);
+Route::post('/notification', [NotificationController::class, 'store']);
+Route::get('/notification/{id}', [NotificationController::class, 'show']);
+Route::put('/notification/{id}', [NotificationController::class, 'update']);
+Route::delete('/notification/{id}', [NotificationController::class,'destroy']);

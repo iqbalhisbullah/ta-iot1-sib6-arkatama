@@ -19,7 +19,7 @@ class DataaktuatorController extends Controller
         $dataaktuator->value = $request->value;
         $dataaktuator->save();
         return response()->json([
-            "message" => "Dataaktuator telah ditambahkan."
+            "message" => "Data aktuator telah ditambahkan."
         ], 201);
     }
 
@@ -37,11 +37,11 @@ class DataaktuatorController extends Controller
         $dataaktuator->value = is_null($request->value) ? $dataaktuator->value : $request->value;
         $dataaktuator->save();
         return response()->json([
-            "message" => "Dataaktuator telah diupdate."
+            "message" => "Data aktuator telah diupdate."
         ], 201);
     } else {
     return response() ->json([
-        "message" => "Dataaktuator tidak ditemukan."
+        "message" => "Data aktuator tidak ditemukan."
     ], 404);
     }
 }
@@ -51,11 +51,11 @@ class DataaktuatorController extends Controller
             $dataaktuator = Dataaktuator::find($id);
             $dataaktuator->delete();
             return response()->json([
-                "message" => "Dataaktuator telah dihapus."
+                "message" => "Data aktuator telah dihapus."
             ], 201);
         } else {
             return response()->json([
-                "message" => "Dataaktuator tidak ditemukan."
+                "message" => "Data aktuator tidak ditemukan."
             ], 404);
         }
     }

@@ -19,7 +19,7 @@ class DatasensorController extends Controller
         $datasensor->value = $request->value;
         $datasensor->save();
         return response()->json([
-            "message" => "Datasensor telah ditambahkan."
+            "message" => "Data sensor telah ditambahkan."
         ], 201);
     }
 
@@ -37,11 +37,11 @@ class DatasensorController extends Controller
         $datasensor->value = is_null($request->value) ? $datasensor->value : $request->value;
         $datasensor->save();
         return response()->json([
-            "message" => "Datasensor telah diupdate."
+            "message" => "Data sensor telah diupdate."
         ], 201);
     } else {
     return response() ->json([
-        "message" => "Datasensor tidak ditemukan."
+        "message" => "Data sensor tidak ditemukan."
     ], 404);
     }
 }
@@ -51,11 +51,11 @@ class DatasensorController extends Controller
             $datasensor = Datasensor::find($id);
             $datasensor->delete();
             return response()->json([
-                "message" => "Datasensor telah dihapus."
+                "message" => "Data sensor telah dihapus."
             ], 201);
         } else {
             return response()->json([
-                "message" => "Datasensor tidak ditemukan."
+                "message" => "Data sensor tidak ditemukan."
             ], 404);
         }
     }
