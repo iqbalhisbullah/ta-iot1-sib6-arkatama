@@ -6,6 +6,7 @@ use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\DatasensorController;
 use App\Http\Controllers\DataaktuatorController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\UserController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -37,3 +38,9 @@ Route::post('/notification', [NotificationController::class, 'store']);
 Route::get('/notification/{id}', [NotificationController::class, 'show']);
 Route::put('/notification/{id}', [NotificationController::class, 'update']);
 Route::delete('/notification/{id}', [NotificationController::class,'destroy']);
+
+Route::get('/user', [UserController::class, 'index']);
+Route::post('/user', [UserController::class, 'store']);
+Route::get('/user/{id}', [UserController::class, 'show']);
+Route::put('/user/{id}', [UserController::class, 'update']);
+Route::delete('/user/{id}', [UserController::class,'destroy']);

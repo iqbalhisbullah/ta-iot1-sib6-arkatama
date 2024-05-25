@@ -46,9 +46,9 @@
         <i class="bi bi-phone d-flex align-items-center ms-4"><span>+62 858 0431 7228</span></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
-        <a href="#" class="github"><i class="bi bi-github"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        <a href="https://github.com/iqbalhisbullah" class="github"><i class="bi bi-github"></i></a>
+        <a href="https://www.instagram.com/iqball._/" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/iqbalhisbullah" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
       </div>
     </div>
   </section>
@@ -64,7 +64,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="https://github.com/iqbalhisbullah">Contact</a></li>
+          <li><a class="nav-link scrollto" href="https://www.instagram.com/iqball._/">Contact</a></li>
           <li><a class="nav-link scrollto" href="{{ route('register')}}">Register</a></li>
           <li><a class="nav-link scrollto " href="{{ route('login')}}">Login</a></li>
         </ul>
@@ -80,7 +80,7 @@
       <h1>Welcome to <span>QbalTech</span></h1>
       <h2>Your Ultimate IoT Platform</h2>
       <div class="d-flex">
-        <a href="{{ route('login')}}" class="btn-get-started scrollto">Login</a>
+        <a href="{{ route('login')}}" class="btn-get-started scrollto">Get Started</a>
         <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
       </div>
     </div>

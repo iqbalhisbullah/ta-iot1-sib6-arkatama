@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,10 +27,9 @@ Route::get('/ledcontrol', function () {
     return view('pages.led', compact('title'));
 })->middleware(['auth', 'verified'])->name('led');
 
-Route::get('/user', function () {
-    $title = 'User';
-    return view('pages.user', compact('title'));
-})->middleware(['auth', 'verified'])->name('user');
+// Menggunakan UserController untuk route /user
+Route::get('/user', [UserController::class, 'index'])
+    ->middleware(['auth', 'verified'])->name('user');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
