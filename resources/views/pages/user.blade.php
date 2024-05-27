@@ -5,9 +5,6 @@
             <div class="iq-header-title">
                 <h4 class="card-title">User List</h4>
             </div>
-            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#addModal">
-                <i class="las la-plus"></i>Add
-            </button>
         </div>
         <div class="iq-card-body">
             <div class="table-responsive">
@@ -42,6 +39,9 @@
                     </tbody>
                 </table>
             </div>
+            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#addModal">
+                <i class="las la-plus"></i>Add
+            </button>
         </div>
         <!-- Button trigger modal -->
 

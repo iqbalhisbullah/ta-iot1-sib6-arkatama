@@ -7,10 +7,6 @@ Route::get('/', function () {
     return view('layouts.landing');
 });
 
-Route::get('/home', function () {
-    $title = 'Welcome Page';
-    return view('pages.home', compact('title'));
-})->middleware(['auth', 'verified'])->name('home');
 
 Route::get('/dashboard', function () {
     $title = 'Dashboard';

@@ -42,9 +42,9 @@
                                 <span class="dark-color d-inline-block line-height-2">Already Have Account ? <a
                                         href="{{ route('login') }}">Log In</a></span>
                                 <ul class="iq-social-media">
-                                    <li><a href="#"><i class="ri-facebook-box-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-twitter-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-instagram-line"></i></a></li>
+                                    <li><a href="https://github.com/iqbalhisbullah"><i class="ri-github-line"></i></a></li>
+                                    <li><a href="https://www.instagram.com/iqball._/"><i class="ri-instagram-line"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/in/iqbalhisbullah"><i class="ri-linkedin-line"></i></a></li>
                                 </ul>
                             </div>
                         </form>
@@ -53,27 +53,26 @@
                 <div class="col-sm-6 text-center">
                     <div class="sign-in-detail text-white"
                         style="background: url(images/login/2.jpg) no-repeat 0 0; background-size: cover;">
-                        <a class="sign-in-logo mb-5" href="#"><img src="images/logo-white.png" class="img-fluid"
-                                alt="logo"></a>
+                        <a></a>
                         <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true"
                             data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1"
                             data-items-mobile-sm="1" data-margin="0">
                             <div class="item">
                                 <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
-                                <h4 class="mb-1 text-white">Manage your orders</h4>
-                                <p>It is a long established fact that a reader will be distracted by the readable content.
+                                <h4 class="mb-1 text-white">Manage your IoT devices</h4>
+                                <p>Our IoT platform allows you to easily control and monitor all your devices from one place.
                                 </p>
                             </div>
                             <div class="item">
                                 <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
-                                <h4 class="mb-1 text-white">Manage your orders</h4>
-                                <p>It is a long established fact that a reader will be distracted by the readable content.
+                                <h4 class="mb-1 text-white">Manage your IoT devices</h4>
+                                <p>Our IoT platform allows you to easily control and monitor all your devices from one place.
                                 </p>
                             </div>
                             <div class="item">
                                 <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
-                                <h4 class="mb-1 text-white">Manage your orders</h4>
-                                <p>It is a long established fact that a reader will be distracted by the readable content.
+                                <h4 class="mb-1 text-white">Manage your IoT devices</h4>
+                                <p>Our IoT platform allows you to easily control and monitor all your devices from one place.
                                 </p>
                             </div>
                         </div>

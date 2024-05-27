@@ -1,7 +1,7 @@
 <div class="iq-sidebar">
 
     <div class="iq-sidebar-logo d-flex justify-content-between">
-        <a href="{{ route('home') }}">
+        <a href="{{ route('dashboard') }}">
             <img src="images/qbal.png" class="img-fluid" alt="">
             <span>Qbaltech</span>
         </a>
