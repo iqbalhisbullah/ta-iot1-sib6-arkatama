@@ -2,7 +2,7 @@
     <div class="iq-navbar-custom">
        <div class="iq-sidebar-logo">
           <div class="top-logo">
-             <a href="index.html" class="logo">
+             <a href="{{ route('landing') }}" class="logo">
              <img src="images/logo.png" class="img-fluid" alt="">
              <span>Qbaltech</span>
              </a>
@@ -12,7 +12,7 @@
           <h5 class="mb-0">{{$title}}</h5>
           <nav aria-label="breadcrumb">
             <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('landing') }}">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{$title}}</li>
              </ul>
           </nav>

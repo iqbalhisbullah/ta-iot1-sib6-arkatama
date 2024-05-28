@@ -21,7 +21,7 @@ Route::get('/sensor', function () {
 })->middleware(['auth', 'verified'])->name('sensor');
 
 Route::get('/ledcontrol', function () {
-    $title = 'LED Control';
+    $title = 'Led Control';
     return view('pages.led', compact('title'));
 })->middleware(['auth', 'verified'])->name('led');
 
