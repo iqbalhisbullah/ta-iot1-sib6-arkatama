@@ -65,7 +65,7 @@
                     {{-- cek apakah sudah login --}}
                     @if (Auth::check())
                         {{-- jika sudah tampilkan menu dashbord dan logout --}}
-                        <li><a class="nav-link scrollto" href="{{ route('dashboard') }}">Dashboard</a></li>
+                        <li><a class="nav-link scrollto" href="{{ route('devices') }}">Devices</a></li>
                         <li><a class="nav-link scrollto " href="{{ route('logout') }}">Logout</a></li>
                     @else
                         {{-- Jika belum tampilkan register dan login --}}
@@ -86,7 +86,7 @@
             <h2>Your Ultimate IoT Platform</h2>
             @if (Auth::check())
             <div class="d-flex">
-                <a href="{{ route('dashboard') }}" class="btn-get-started scrollto">Dashboard</a>
+                <a href="{{ route('devices') }}" class="btn-get-started scrollto">Devices</a>
             </div>
             @else
             <div class="d-flex">

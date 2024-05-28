@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Device;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,9 @@ class DeviceController extends Controller
 
     public function index()
     {
-        return Device::all();
+        $devices = Device::all();
+        $title = 'Devices';
+        return view('pages.devices', compact('devices', 'title'));
     }
     public function store(Request $request)
     {
@@ -31,20 +34,20 @@ class DeviceController extends Controller
     public function update(Request $request, string $id)
     {
         if (Device::where('id', $id)->exists()) {
-        $device = Device::find($id);
-        $device->device_name = is_null($request->device_name) ? $device->device_name : $request->device_name;
-        $device->device_type = is_null($request->device_type) ? $device->device_type : $request->device_type;
-        $device->current_value = is_null($request->current_value) ? $device->current_value : $request->current_value;
-        $device->save();
-        return response()->json([
-            "message" => "Device telah diupdate."
-        ], 201);
-    } else {
-    return response() ->json([
-        "message" => "Device tidak ditemukan."
-    ], 404);
+            $device = Device::find($id);
+            $device->device_name = is_null($request->device_name) ? $device->device_name : $request->device_name;
+            $device->device_type = is_null($request->device_type) ? $device->device_type : $request->device_type;
+            $device->current_value = is_null($request->current_value) ? $device->current_value : $request->current_value;
+            $device->save();
+            return response()->json([
+                "message" => "Device telah diupdate."
+            ], 201);
+        } else {
+            return response()->json([
+                "message" => "Device tidak ditemukan."
+            ], 404);
+        }
     }
-}
     public function destroy(string $id)
     {
         if (Device::where('id', $id)->exists()) {
@@ -60,18 +63,4 @@ class DeviceController extends Controller
         }
     }
 
-
-    public function web_index(){
-        return view('devices', [
-            "title" => "devices",
-            "devices" => Device::all()
-        ]);
-    }
-
-    public function web_show($id){
-        return view('device', [
-            "title" => "device",
-            "device" => Device::find($id)
-        ]);
-    }
 }

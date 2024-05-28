@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\DatasensorController;
 use App\Http\Controllers\DataaktuatorController;
+use App\Http\Controllers\LedController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\UserController;
 
@@ -44,3 +45,11 @@ Route::post('/users', [UserController::class, 'store']);
 Route::get('/users/{id}', [UserController::class, 'show']);
 Route::put('/users/{id}', [UserController::class, 'update']);
 Route::delete('/users/{id}', [UserController::class,'destroy']);
+
+
+Route::get('/leds', [LedController::class, 'indexx'])->name('index');
+Route::post('/leds', [LedController::class, 'storee'])->name('store');
+Route::get('/leds/{id}', [LedController::class, 'show'])->name('show');
+Route::put('/leds/{id}', [LedController::class, 'update'])->name('update');
+Route::delete('/leds/{id}', [LedController::class, 'destroy'])->name('destroy');
+

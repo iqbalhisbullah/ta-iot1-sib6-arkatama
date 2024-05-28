@@ -11,7 +11,7 @@
                 <div class="table-responsive">
                     <table id="user-list-table" class="table table-striped table-bordered mt-4" role="grid"
                         aria-describedby="user-list-page-info">
-                        <thead>
+                        <thead class="thead-dark">
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
@@ -41,7 +41,7 @@
                     </table>
                 </div>
                 <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#addModal">
-                    <i class="las la-plus"></i>Add
+                    <i class="las la-plus"></i>Add User
                 </button>
             </div>
             <!-- Button trigger modal -->
@@ -75,7 +75,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </div>

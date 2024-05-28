@@ -4,16 +4,16 @@
           <div class="top-logo">
              <a href="index.html" class="logo">
              <img src="images/logo.png" class="img-fluid" alt="">
-             <span>Sofbox</span>
+             <span>Qbaltech</span>
              </a>
           </div>
        </div>
        <div class="navbar-breadcrumb">
-          <h5 class="mb-0">{{ $title }}</h5>
+          <h5 class="mb-0">{{$title}}</h5>
           <nav aria-label="breadcrumb">
-             <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ $title }}</li>
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{$title}}</li>
              </ul>
           </nav>
        </div>

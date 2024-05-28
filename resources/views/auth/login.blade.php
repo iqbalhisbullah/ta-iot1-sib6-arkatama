@@ -34,8 +34,10 @@
                                         href="{{ route('register') }}">Sign up</a></span>
                                 <ul class="iq-social-media">
                                     <li><a href="https://github.com/iqbalhisbullah"><i class="ri-github-line"></i></a></li>
-                                    <li><a href="https://www.instagram.com/iqball._/"><i class="ri-instagram-line"></i></a></li>
-                                    <li><a href="https://www.linkedin.com/in/iqbalhisbullah"><i class="ri-linkedin-line"></i></a></li>
+                                    <li><a href="https://www.instagram.com/iqball._/"><i class="ri-instagram-line"></i></a>
+                                    </li>
+                                    <li><a href="https://www.linkedin.com/in/iqbalhisbullah"><i
+                                                class="ri-linkedin-line"></i></a></li>
                                 </ul>
                             </div>
                         </form>
@@ -51,19 +53,22 @@
                             <div class="item">
                                 <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
                                 <h4 class="mb-1 text-white">Manage your IoT devices</h4>
-                                <p>Our IoT platform allows you to easily control and monitor all your devices from one place.
+                                <p>Our IoT platform allows you to easily control and monitor all your devices from one
+                                    place.
                                 </p>
                             </div>
                             <div class="item">
                                 <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
                                 <h4 class="mb-1 text-white">Manage your IoT devices</h4>
-                                <p>Our IoT platform allows you to easily control and monitor all your devices from one place.
+                                <p>Our IoT platform allows you to easily control and monitor all your devices from one
+                                    place.
                                 </p>
                             </div>
                             <div class="item">
                                 <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
                                 <h4 class="mb-1 text-white">Manage your IoT devices</h4>
-                                <p>Our IoT platform allows you to easily control and monitor all your devices from one place.
+                                <p>Our IoT platform allows you to easily control and monitor all your devices from one
+                                    place.
                                 </p>
                             </div>
                         </div>

@@ -1,4 +1,5 @@
 @extends('layouts.dashboard')
+@section('title', $title)
 @section('content')
-    Ini Led Control
+    INI LED
 @endsection
