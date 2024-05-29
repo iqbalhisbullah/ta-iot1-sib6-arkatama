@@ -2,9 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\DatasensorController;
-use App\Http\Controllers\DataaktuatorController;
 use App\Http\Controllers\LedController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\UserController;
@@ -13,20 +11,11 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/devices', [DeviceController::class, 'index']);
-Route::post('/devices', [DeviceController::class, 'store']);
-Route::get('/devices/{id}', [DeviceController::class, 'show']);
-Route::put('/devices/{id}', [DeviceController::class, 'update']);
-Route::delete('/devices/{id}', [DeviceController::class,'destroy']);
-
-
 Route::get('/datasensor', [DatasensorController::class, 'indexx']);
 Route::post('/datasensor', [DatasensorController::class, 'store']);
 Route::get('/datasensor/{id}', [DatasensorController::class, 'show']);
 Route::put('/datasensor/{id}', [DatasensorController::class, 'update']);
 Route::delete('/datasensor/{id}', [DatasensorController::class,'destroy']);
-
-
 
 Route::get('/notification', [NotificationController::class, 'index']);
 Route::post('/notification', [NotificationController::class, 'store']);
@@ -39,7 +28,6 @@ Route::post('/users', [UserController::class, 'store']);
 Route::get('/users/{id}', [UserController::class, 'show']);
 Route::put('/users/{id}', [UserController::class, 'update']);
 Route::delete('/users/{id}', [UserController::class,'destroy']);
-
 
 Route::get('/leds', [LedController::class, 'indexx'])->name('index');
 Route::post('/leds', [LedController::class, 'storee'])->name('store');
