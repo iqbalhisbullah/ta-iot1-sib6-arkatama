@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Led extends Model
 {
     use HasFactory;
-
-    // Menentukan kolom-kolom yang dapat diisi secara massal
-    protected $guarded = [];
+    protected $table = 'leds';
+    protected $fillable = [
+        'name',
+        'pin',
+        'status',
+    ];
 }

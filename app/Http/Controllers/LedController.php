@@ -7,30 +7,22 @@ use Illuminate\Http\Request;
 
 class LedController extends Controller
 {
-    function index()
+    public function index()
     {
-        $leds = Led::all(); // select * from led order by name asc
+        $leds = Led::all();
         $title = 'Led Control';
-        dd($leds);
         return view('pages.led', compact('leds', 'title'));
     }
 
-
-    function store(Request $request)
+    public function toggleStatus(Request $request, $id)
     {
-        // membuat validasi
-        $validated = $request->validate([
-            'name' => [
-                'required',
-                'max:255',
-                'min:3'
-            ],
-            'pin' => [
-                'required',
-                'numeric',
-            ],
-        ]);
+        $led = Led::findOrFail($id);
+        $led->status = $request->status;
+        $led->save();
+
+        return response()->json(['message' => 'LED status updated successfully']);
     }
+
 
         public function indexx()
         {
@@ -53,7 +45,7 @@ class LedController extends Controller
             return Led::find($id);
         }
 
-        public function update(Request $request, string $id)
+        public function updatee(Request $request, string $id)
         {
             if (Led::where('id', $id)->exists()) {
             $leds = Led::find($id);

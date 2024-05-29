@@ -20,7 +20,7 @@ Route::put('/devices/{id}', [DeviceController::class, 'update']);
 Route::delete('/devices/{id}', [DeviceController::class,'destroy']);
 
 
-Route::get('/datasensor', [DatasensorController::class, 'index']);
+Route::get('/datasensor', [DatasensorController::class, 'indexx']);
 Route::post('/datasensor', [DatasensorController::class, 'store']);
 Route::get('/datasensor/{id}', [DatasensorController::class, 'show']);
 Route::put('/datasensor/{id}', [DatasensorController::class, 'update']);
@@ -50,6 +50,6 @@ Route::delete('/users/{id}', [UserController::class,'destroy']);
 Route::get('/leds', [LedController::class, 'indexx'])->name('index');
 Route::post('/leds', [LedController::class, 'storee'])->name('store');
 Route::get('/leds/{id}', [LedController::class, 'show'])->name('show');
-Route::put('/leds/{id}', [LedController::class, 'update'])->name('update');
+Route::put('/leds/{id}', [LedController::class, 'updatee'])->name('update');
 Route::delete('/leds/{id}', [LedController::class, 'destroy'])->name('destroy');
 
