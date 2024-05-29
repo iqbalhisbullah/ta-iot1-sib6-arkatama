@@ -14,4 +14,6 @@
       <link rel="stylesheet" href="css/responsive.css">
       <!-- Remix Icon CSS -->
       <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+      <title>Grafik Data Sensor</title>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 

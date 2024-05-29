@@ -32,7 +32,7 @@
                     </tbody>
                 </table>
             </div>
-            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#addModal">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
                 <i class="las la-plus"></i>Add Device
             </button>
         </div>
