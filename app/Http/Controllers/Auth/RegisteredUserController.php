@@ -45,6 +45,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('devices', absolute: false));
+        return redirect(route('sensor.index', absolute: false));
     }
 }

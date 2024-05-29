@@ -28,7 +28,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('devices', absolute: false));
+        return redirect()->intended(route('sensor.index', absolute: false));
     }
 
     /**
