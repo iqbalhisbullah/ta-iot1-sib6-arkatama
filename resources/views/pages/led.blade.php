@@ -49,7 +49,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: #ffffff;
+        background-color: #000000;
         transition: .4s;
         border-radius: 34px;
     }
@@ -61,7 +61,7 @@
         width: 26px;
         left: 4px;
         bottom: 4px;
-        background-color: white;
+        background-color: rgb(255, 255, 255);
         transition: .4s;
         border-radius: 50%;
     }

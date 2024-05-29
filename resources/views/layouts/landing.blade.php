@@ -65,7 +65,7 @@
                     {{-- cek apakah sudah login --}}
                     @if (Auth::check())
                         {{-- jika sudah tampilkan menu dashbord dan logout --}}
-                        <li><a class="nav-link scrollto" href="{{ route('devices') }}">Devices</a></li>
+                        <li><a class="nav-link scrollto" href="{{ route('sensor.index') }}">Return to Activity</a></li>
                         <li><a class="nav-link scrollto " href="{{ route('logout') }}">Logout</a></li>
                     @else
                         {{-- Jika belum tampilkan register dan login --}}
@@ -83,10 +83,10 @@
     <section id="hero" class="d-flex align-items-center">
         <div class="container" data-aos="zoom-out" data-aos-delay="100">
             <h1>Welcome to <span>QbalTech</span></h1>
-            <h2>Your Ultimate IoT Platform</h2>
+            <h2>Your Ultimate IoT Web Monitoring Solution</h2>
             @if (Auth::check())
             <div class="d-flex">
-                <a href="{{ route('devices') }}" class="btn-get-started scrollto">Devices</a>
+                <a href="{{ route('sensor.index') }}" class="btn-get-started scrollto">Return to Activity</a>
             </div>
             @else
             <div class="d-flex">
@@ -103,7 +103,7 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="row">
-                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                    <div class="mb-5 col-md-6 col-lg-3 d-flex align-items-stretch mb-lg-0">
                         <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
                             <div class="icon"><i class="bx bxl-dribbble"></i></div>
                             <h4 class="title"><a href="">Lorem Ipsum</a></h4>
@@ -112,7 +112,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                    <div class="mb-5 col-md-6 col-lg-3 d-flex align-items-stretch mb-lg-0">
                         <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
                             <div class="icon"><i class="bx bx-file"></i></div>
                             <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
@@ -121,7 +121,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                    <div class="mb-5 col-md-6 col-lg-3 d-flex align-items-stretch mb-lg-0">
                         <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
                             <div class="icon"><i class="bx bx-tachometer"></i></div>
                             <h4 class="title"><a href="">Magni Dolores</a></h4>
@@ -130,7 +130,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                    <div class="mb-5 col-md-6 col-lg-3 d-flex align-items-stretch mb-lg-0">
                         <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
                             <div class="icon"><i class="bx bx-world"></i></div>
                             <h4 class="title"><a href="">Nemo Enim</a></h4>
@@ -158,7 +158,7 @@
                     <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
                         <img src="assets/img/about.jpg" class="img-fluid" alt="">
                     </div>
-                    <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center"
+                    <div class="pt-4 col-lg-6 pt-lg-0 content d-flex flex-column justify-content-center"
                         data-aos="fade-up" data-aos-delay="100">
                         <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
                         <p class="fst-italic">
@@ -279,7 +279,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+                    <div class="mt-5 col-lg-3 col-md-6 mt-md-0">
                         <div class="count-box">
                             <i class="bi bi-journal-richtext"></i>
                             <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
@@ -288,7 +288,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                    <div class="mt-5 col-lg-3 col-md-6 mt-lg-0">
                         <div class="count-box">
                             <i class="bi bi-headset"></i>
                             <span data-purecounter-start="0" data-purecounter-end="1463"
@@ -297,7 +297,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                    <div class="mt-5 col-lg-3 col-md-6 mt-lg-0">
                         <div class="count-box">
                             <i class="bi bi-people"></i>
                             <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
@@ -367,7 +367,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+                    <div class="mt-4 col-lg-4 col-md-6 d-flex align-items-stretch mt-md-0" data-aos="zoom-in"
                         data-aos-delay="200">
                         <div class="icon-box">
                             <div class="icon"><i class="bx bx-file"></i></div>
@@ -376,7 +376,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in"
+                    <div class="mt-4 col-lg-4 col-md-6 d-flex align-items-stretch mt-lg-0" data-aos="zoom-in"
                         data-aos-delay="300">
                         <div class="icon-box">
                             <div class="icon"><i class="bx bx-tachometer"></i></div>
@@ -385,7 +385,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+                    <div class="mt-4 col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in"
                         data-aos-delay="100">
                         <div class="icon-box">
                             <div class="icon"><i class="bx bx-world"></i></div>
@@ -394,7 +394,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+                    <div class="mt-4 col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in"
                         data-aos-delay="200">
                         <div class="icon-box">
                             <div class="icon"><i class="bx bx-slideshow"></i></div>
@@ -403,7 +403,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+                    <div class="mt-4 col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in"
                         data-aos-delay="300">
                         <div class="icon-box">
                             <div class="icon"><i class="bx bx-arch"></i></div>
@@ -810,7 +810,7 @@
 
                 <div class="row" data-aos="fade-up" data-aos-delay="100">
                     <div class="col-lg-6">
-                        <div class="info-box mb-4">
+                        <div class="mb-4 info-box">
                             <i class="bx bx-map"></i>
                             <h3>Our Address</h3>
                             <p>Malang, Jawa Timur, Indonesia</p>
@@ -818,7 +818,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-6">
-                        <div class="info-box  mb-4">
+                        <div class="mb-4 info-box">
                             <i class="bx bx-envelope"></i>
                             <h3>Email Us</h3>
                             <p>iqbalhisbullah14@gmail.com</p>
@@ -826,7 +826,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-6">
-                        <div class="info-box  mb-4">
+                        <div class="mb-4 info-box">
                             <i class="bx bx-phone-call"></i>
                             <h3>Call Us</h3>
                             <p>+62 858 0431 7228</p>

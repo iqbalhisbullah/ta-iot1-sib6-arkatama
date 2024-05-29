@@ -4,12 +4,12 @@
         <div class="iq-card">
             <div class="iq-card-header d-flex justify-content-between align-items-center">
                 <div class="iq-header-title">
-                    <h4 class="card-title">User List</h4>
+                    <h4 class="card-title">Users List</h4>
                 </div>
             </div>
             <div class="iq-card-body">
                 <div class="table-responsive">
-                    <table id="user-list-table" class="table table-striped table-bordered mt-4" role="grid"
+                    <table id="user-list-table" class="table mt-4 table-striped table-bordered" role="grid"
                         aria-describedby="user-list-page-info">
                         <thead class="thead-dark">
                             <tr>

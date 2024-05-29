@@ -6,33 +6,33 @@
         <!-- Grafik untuk Data Sensor DHT11 -->
         <div class="col-md-9 mb-9">
             <div class="iq-card">
-                    <h4 class="card-title">Data Sensor DHT11</h4>
+                <h4 class="card-title">DHT11 Sensor Data</h4>
                 <div class="iq-card-body">
                     <canvas id="dht11Chart"></canvas>
                 </div>
             </div>
         </div>
     </div>
-        <!-- Grafik untuk Data Sensor MQ5 -->
-        <div class="col-md-9 mb-9">
-            <div class="iq-card">
-                    <h4 class="card-title">Data Sensor MQ5</h4>
-                <div class="iq-card-body">
-                    <canvas id="mq5Chart"></canvas>
-                </div>
+    <!-- Grafik untuk Data Sensor MQ5 -->
+    <div class="col-md-9 mb-9">
+        <div class="iq-card">
+            <h4 class="card-title">MQ5 Sensor Data</h4>
+            <div class="iq-card-body">
+                <canvas id="mq5Chart"></canvas>
             </div>
         </div>
     </div>
-        <!-- Grafik untuk Data Sensor Rain Sensor -->
-        <div class="col-md-9 mb-9">
-            <div class="iq-card">
-                    <h4 class="card-title">Data Sensor Hujan</h4>
-                <div class="iq-card-body">
-                    <canvas id="rainSensorChart"></canvas>
-                </div>
-            </div>
+</div>
+<!-- Grafik untuk Data Sensor Rain Sensor -->
+<div class="col-md-9 mb-9">
+    <div class="iq-card">
+        <h4 class="card-title">Rain Sensor Data</h4>
+        <div class="iq-card-body">
+            <canvas id="rainSensorChart"></canvas>
         </div>
     </div>
+</div>
+</div>
 </div>
 
 
@@ -83,8 +83,8 @@ $rainSensorValues = $rainSensorData->pluck('value')->toArray();
             labels: <?php echo json_encode($mq5Labels); ?>,
             datasets: [{
                 label: 'Konsentrasi Gas (ppm)',
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
+                backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                borderColor: 'rgba(255, 0, 0, 1)',
                 data: <?php echo json_encode($mq5Values); ?>,
                 fill: false,
             }]
@@ -101,8 +101,8 @@ $rainSensorValues = $rainSensorData->pluck('value')->toArray();
             labels: <?php echo json_encode($rainSensorLabels); ?>,
             datasets: [{
                 label: 'Intensitas Hujan',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                borderColor: 'rgba(0, 0, 0, 1)',
                 data: <?php echo json_encode($rainSensorValues); ?>,
                 fill: false,
             }]
@@ -139,12 +139,11 @@ $rainSensorValues = $rainSensorData->pluck('value')->toArray();
     }
 
     .card-title {
-    margin: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-}
-
+        margin: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+    }
 </style>
 
 @endsection

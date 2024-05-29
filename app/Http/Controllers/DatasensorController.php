@@ -12,7 +12,7 @@ class DatasensorController extends Controller
         $dht11Data = Datasensor::where('sensor_type', 'DHT11')->get();
         $mq5Data = Datasensor::where('sensor_type', 'MQ5')->get();
         $rainSensorData = Datasensor::where('sensor_type', 'RainSensor')->get();
-        $title = 'Sensor';
+        $title = 'Sensor Monitoring';
 
         // Kirim data ke view
         return view('pages.sensor', compact('dht11Data', 'mq5Data', 'rainSensorData', 'title'));

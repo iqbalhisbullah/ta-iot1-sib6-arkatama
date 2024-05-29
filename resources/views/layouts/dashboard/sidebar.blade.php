@@ -16,10 +16,9 @@
     <div id="sidebar-scrollbar">
         <nav class="iq-sidebar-menu">
             <ul id="iq-sidebar-toggle" class="iq-menu">
-                <li class="{{ Request::is('devices') ? 'active' : '' }}"><a href="{{ route('devices') }}" class="iq-waves-effect" data-title="Devices"><i class="ri-pencil-ruler-line"></i><span>Devices</span></a></li>
-                <li class="{{ Request::is('sensor') ? 'active' : '' }}"><a href="{{ route('sensor.index') }}" class="iq-waves-effect" data-title="Sensor"><i class="ri-list-check"></i><span>Sensor</span></a></li>
+                <li class="{{ Request::is('sensor') ? 'active' : '' }}"><a href="{{ route('sensor.index') }}" class="iq-waves-effect" data-title="Sensor Monitoring"><i class="ri-list-check"></i><span>Sensor Monitoring</span></a></li>
                 <li class="{{ Request::is('led*') ? 'active' : '' }}"><a href="{{ route('led.index') }}" class="iq-waves-effect" data-title="Led Control"><i class="ri-lightbulb-line"></i><span>Led Control</span></a></li>
-                <li class="{{ Request::is('user') ? 'active' : '' }}"><a href="{{ route('user') }}" class="iq-waves-effect" data-title="User"><i class="ri-user-line"></i><span>User</span></a></li>
+                <li class="{{ Request::is('users') ? 'active' : '' }}"><a href="{{ route('users') }}" class="iq-waves-effect" data-title="Users"><i class="ri-user-line"></i><span>Users</span></a></li>
             </ul>
         </nav>
         <div class="p-3"></div>

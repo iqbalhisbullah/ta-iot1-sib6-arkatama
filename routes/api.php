@@ -27,12 +27,6 @@ Route::put('/datasensor/{id}', [DatasensorController::class, 'update']);
 Route::delete('/datasensor/{id}', [DatasensorController::class,'destroy']);
 
 
-Route::get('/dataaktuator', [DataaktuatorController::class, 'index']);
-Route::post('/dataaktuator', [DataaktuatorController::class, 'store']);
-Route::get('/dataaktuator/{id}', [DataaktuatorController::class, 'show']);
-Route::put('/dataaktuator/{id}', [DataaktuatorController::class, 'update']);
-Route::delete('/dataaktuator/{id}', [DataaktuatorController::class,'destroy']);
-
 
 Route::get('/notification', [NotificationController::class, 'index']);
 Route::post('/notification', [NotificationController::class, 'store']);
