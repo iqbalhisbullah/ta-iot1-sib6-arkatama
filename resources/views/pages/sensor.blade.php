@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <!-- Grafik untuk Data Sensor DHT11 -->
         <div class="col-md-9 mb-9">
@@ -13,27 +13,30 @@
             </div>
         </div>
     </div>
-    <!-- Grafik untuk Data Sensor MQ5 -->
-    <div class="col-md-9 mb-9">
-        <div class="iq-card">
-            <h4 class="card-title">MQ5 Sensor Data</h4>
-            <div class="iq-card-body">
-                <canvas id="mq5Chart"></canvas>
+    <div class="row">
+        <!-- Grafik untuk Data Sensor MQ5 -->
+        <div class="col-md-9 mb-9">
+            <div class="iq-card">
+                <h4 class="card-title">MQ5 Sensor Data</h4>
+                <div class="iq-card-body">
+                    <canvas id="mq5Chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Grafik untuk Data Sensor Rain Sensor -->
+        <div class="col-md-9 mb-9">
+            <div class="iq-card">
+                <h4 class="card-title">Rain Sensor Data</h4>
+                <div class="iq-card-body">
+                    <canvas id="rainSensorChart"></canvas>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Grafik untuk Data Sensor Rain Sensor -->
-<div class="col-md-9 mb-9">
-    <div class="iq-card">
-        <h4 class="card-title">Rain Sensor Data</h4>
-        <div class="iq-card-body">
-            <canvas id="rainSensorChart"></canvas>
-        </div>
-    </div>
-</div>
-</div>
-</div>
+
 
 
 <?php
