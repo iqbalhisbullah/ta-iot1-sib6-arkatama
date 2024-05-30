@@ -6,7 +6,7 @@
         <!-- Grafik untuk Data Sensor DHT11 -->
         <div class="col-md-9 mb-9">
             <div class="iq-card">
-                <h4 class="card-title">DHT11 Sensor Combined Data</h4>
+                <h4 class="card-title">DHT11 Sensor Data</h4>
                 <div class="iq-card-body">
                     <canvas id="dht11CombinedChart"></canvas>
                 </div>
