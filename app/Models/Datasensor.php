@@ -7,12 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Datasensor extends Model
 {
-    use HasFactory;
     protected $table = 'datasensor';
-
-    protected $fillable = [
-        'sensor_id',
-        'sensor_name',
-        'value',
-    ];
+    protected $fillable = ['sensor_type', 'value'];
 }

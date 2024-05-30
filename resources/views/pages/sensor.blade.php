@@ -6,9 +6,9 @@
         <!-- Grafik untuk Data Sensor DHT11 -->
         <div class="col-md-9 mb-9">
             <div class="iq-card">
-                <h4 class="card-title">DHT11 Sensor Data</h4>
+                <h4 class="card-title">DHT11 Sensor Combined Data</h4>
                 <div class="iq-card-body">
-                    <canvas id="dht11Chart"></canvas>
+                    <canvas id="dht11CombinedChart"></canvas>
                 </div>
             </div>
         </div>
@@ -40,11 +40,31 @@
 
 
 <?php
-// Data PHP untuk sensor DHT11
-$dht11Labels = $dht11Data->map(function ($data) {
-    return $data->created_at->format('H:i:s');
-})->toArray();
-$dht11Values = $dht11Data->pluck('value')->toArray();
+// Combine DHT11 temperature and humidity data into one array
+$dht11CombinedData = [];
+foreach ($dht11Datatemp as $index => $data) {
+    $dht11CombinedData[] = [
+        'label' => 'Temperature (°C)',
+        'value' => $data->value,
+        'humidity' => $dht11Datahumd[$index]->value,
+        'time' => $data->created_at->format('H:i:s')
+    ];
+}
+
+// Extract labels and values for the combined data
+$dht11CombinedLabels = array_map(function ($data) {
+    return $data['time'];
+}, $dht11CombinedData);
+
+$dht11CombinedValues = array_map(function ($data) {
+    return $data['value'];
+}, $dht11CombinedData);
+
+$dht11CombinedHumidity = array_map(function ($data) {
+    return $data['humidity'];
+}, $dht11CombinedData);
+
+
 
 // Data PHP untuk sensor MQ5
 $mq5Labels = $mq5Data->map(function ($data) {
@@ -62,22 +82,48 @@ $rainSensorValues = $rainSensorData->pluck('value')->toArray();
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    var dht11Config = {
-        type: 'line',
-        data: {
-            labels: <?php echo json_encode($dht11Labels); ?>,
-            datasets: [{
-                label: 'Temperatur (°C)',
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                data: <?php echo json_encode($dht11Values); ?>,
-                fill: false,
+    var dht11CombinedConfig = {
+    type: 'line',
+    data: {
+        labels: <?php echo json_encode($dht11CombinedLabels); ?>,
+        datasets: [{
+            label: 'Temperature (°C)',
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            data: <?php echo json_encode($dht11CombinedValues); ?>,
+            fill: false,
+            yAxisID: 'temperature-y-axis'
+        }, {
+            label: 'Humidity (%)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            data: <?php echo json_encode($dht11CombinedHumidity); ?>,
+            fill: false,
+            yAxisID: 'humidity-y-axis'
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                id: 'temperature-y-axis',
+                type: 'linear',
+                position: 'left',
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Temperature (°C)'
+                }
+            }, {
+                id: 'humidity-y-axis',
+                type: 'linear',
+                position: 'right',
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Humidity (%)'
+                }
             }]
-        },
-        options: {
-            // Konfigurasi grafik DHT11
         }
-    };
+    }
+};
 
     // Konfigurasi grafik MQ5
     var mq5Config = {
@@ -99,7 +145,7 @@ $rainSensorValues = $rainSensorData->pluck('value')->toArray();
 
     // Konfigurasi grafik Rain Sensor
     var rainSensorConfig = {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: <?php echo json_encode($rainSensorLabels); ?>,
             datasets: [{
@@ -116,8 +162,8 @@ $rainSensorValues = $rainSensorData->pluck('value')->toArray();
     };
 
     // Render grafik
-    var dht11Ctx = document.getElementById('dht11Chart').getContext('2d');
-    new Chart(dht11Ctx, dht11Config);
+    var dht11CombinedCtx = document.getElementById('dht11CombinedChart').getContext('2d');
+    new Chart(dht11CombinedCtx, dht11CombinedConfig);
 
     var mq5Ctx = document.getElementById('mq5Chart').getContext('2d');
     new Chart(mq5Ctx, mq5Config);
