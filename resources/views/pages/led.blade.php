@@ -5,7 +5,7 @@
     <div class="iq-card">
         <div class="iq-card-header d-flex justify-content-between align-items-center">
             <div class="iq-header-title">
-                <h4 class="card-title">Swicth Led Control</h4>
+                <h3 class="card-title">Swicth Led Control</h3>
             </div>
         </div>
         <div class="row">
@@ -13,8 +13,8 @@
             <div class="col-md-5">
                 <div class="mb-5 card">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $led->name }}</h5>
-                        <h6 class="card-title"> Pin : {{ $led->pin }}</h6>
+                        <h4 class="card-title">{{ $led->name }}</h4>
+                        <h5 class="card-title"> Pin : {{ $led->pin }}</h5>
                         <label class="switch">
                             <input type="checkbox" class="toggle-switch" data-id="{{ $led->id }}" {{ $led->status ?
                             'checked' : '' }}>
@@ -32,8 +32,8 @@
     .switch {
         position: relative;
         display: inline-block;
-        width: 60px;
-        height: 34px;
+        width: 84px;
+        height: 44px;
     }
 
     .switch input {
@@ -57,9 +57,9 @@
     .slider:before {
         position: absolute;
         content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
+        height: 36px;
+        width: 36px;
+        left: 12px;
         bottom: 4px;
         background-color: rgb(255, 255, 255);
         transition: .4s;

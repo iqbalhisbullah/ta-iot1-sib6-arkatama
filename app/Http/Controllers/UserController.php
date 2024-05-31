@@ -1,15 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    function index(){
+    function index()
+    {
         $users = User::orderBy('name')->get();
         $data['users'] = $users;
-  $data['title'] = 'User'; // Tambahkan variabel $title
+        $data['title'] = 'User'; // Tambahkan variabel $title
 
         return view('pages.user', $data);
     }
@@ -39,20 +41,20 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         if (User::where('id', $id)->exists()) {
-        $users = User::find($id);
-        $users->name = is_null($request->name) ? $users->sensor_id : $request->sensor_id;
-        $users->email = is_null($request->email) ? $users->email : $request->email;
-        $users->password = is_null($request->password) ? $users->password : $request->password;
-        $users->save();
-        return response()->json([
-            "message" => "User telah diupdate."
-        ], 201);
-    } else {
-    return response() ->json([
-        "message" => "User tidak ditemukan."
-    ], 404);
+            $users = User::find($id);
+            $users->name = is_null($request->name) ? $users->sensor_id : $request->sensor_id;
+            $users->email = is_null($request->email) ? $users->email : $request->email;
+            $users->password = is_null($request->password) ? $users->password : $request->password;
+            $users->save();
+            return response()->json([
+                "message" => "User telah diupdate."
+            ], 201);
+        } else {
+            return response()->json([
+                "message" => "User tidak ditemukan."
+            ], 404);
+        }
     }
-}
     public function destroy(string $id)
     {
         if (User::where('id', $id)->exists()) {
@@ -68,4 +70,3 @@ class UserController extends Controller
         }
     }
 }
-

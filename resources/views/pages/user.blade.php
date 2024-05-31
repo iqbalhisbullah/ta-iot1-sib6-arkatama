@@ -1,85 +1,41 @@
 @extends('layouts.dashboard')
 @section('content')
-    <div class="container">
-        <div class="iq-card">
-            <div class="iq-card-header d-flex justify-content-between align-items-center">
-                <div class="iq-header-title">
-                    <h4 class="card-title">Users List</h4>
-                </div>
+<div class="container">
+    <div class="iq-card">
+        <div class="iq-card-header d-flex justify-content-between align-items-center">
+            <div class="iq-header-title">
+                <h3 class="card-title">Users List</h3>
             </div>
-            <div class="iq-card-body">
-                <div class="table-responsive">
-                    <table id="user-list-table" class="table mt-4 table-striped table-bordered" role="grid"
-                        aria-describedby="user-list-page-info">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Join Date</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($users as $user)
-                                <tr>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->created_at->format('d M Y, H:i:s') }}</td>
-                                    <td>
-                                        <div class="flex align-items-center list-user-action">
-                                            <a data-toggle="tooltip" data-placement="top" title=""
-                                                data-original-title="Edit" href="#"><i class="ri-pencil-line"></i></a>
-                                            <a data-toggle="tooltip" data-placement="top" title=""
-                                                data-original-title="Delete" href="#"><i
-                                                    class="ri-delete-bin-line"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
+        </div>
+        @php
+        $i = 1;
+        @endphp
+        <div class="iq-card-body">
+            <div class="table-responsive">
+                <table id="user-list-table" class="table mt-4 table-striped table-bordered" role="grid"
+                    aria-describedby="user-list-page-info">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="font-size: 18px;">No</th>
+                            <th style="font-size: 18px;">Name</th>
+                            <th style="font-size: 18px;">Email</th>
+                            <th style="font-size: 18px;">Join Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $user)
+                        <tr>
+                            <td style="font-size: 18px;"> {{ $i++ }} </td>
+                            <td style="font-size: 18px;">{{ $user->name }}</td>
+                            <td style="font-size: 18px;">{{ $user->email }}</td>
+                            <td style="font-size: 18px;">{{ $user->created_at->format('d M Y, H:i:s') }}</td>
+                        </tr>
+                        @endforeach
 
-                        </tbody>
-                    </table>
-                </div>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
-                    <i class="las la-plus"></i>Add User
-                </button>
-            </div>
-            <!-- Button trigger modal -->
-
-
-            <!-- Modal -->
-            <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="addModalLabel">Add User</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="addName">Name</label>
-                                    <input type="text" class="form-control" id="addName" name='name'>
-                                </div>
-                                <div class="form-group">
-                                    <label for="addEmail">Email</label>
-                                    <input type="email" class="form-control" id="addEmail" name='email'>
-                                </div>
-                                <div class="form-group">
-                                    <label for="addPassword">Password</label>
-                                    <input type="password" class="form-control" id="addPassword" name='password'>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
 @endsection

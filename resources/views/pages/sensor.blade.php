@@ -3,8 +3,28 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
+        <!-- Card untuk Status Rain Sensor -->
+        <div class="mb-6 col-md-6">
+            <div class="iq-card Center">
+                <h4 class="card-title">Rain Sensor Status</h4>
+                <div class="iq-card-body">
+                    <div id="rainSensorStatus" class="status-card"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card untuk Status Kebocoran Gas -->
+        <div class="mb-6 col-md-6">
+            <div class="iq-card Center">
+                <h4 class="card-title">Gas Leak Status</h4>
+                <div class="iq-card-body">
+                    <div id="gasLeakStatus" class="status-card"></div>
+                </div>
+            </div>
+        </div>
+
         <!-- Grafik untuk Data Sensor DHT11 -->
-        <div class="col-md-9 mb-9">
+        <div class="mb-6 col-md-6">
             <div class="iq-card">
                 <h4 class="card-title">DHT11 Sensor Data</h4>
                 <div class="iq-card-body">
@@ -12,10 +32,9 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
+
         <!-- Grafik untuk Data Sensor MQ5 -->
-        <div class="col-md-9 mb-9">
+        <div class="mb-6 col-md-6">
             <div class="iq-card">
                 <h4 class="card-title">MQ5 Sensor Data</h4>
                 <div class="iq-card-body">
@@ -24,20 +43,8 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <!-- Grafik untuk Data Sensor Rain Sensor -->
-        <div class="col-md-9 mb-9">
-            <div class="iq-card">
-                <h4 class="card-title">Rain Sensor Data</h4>
-                <div class="iq-card-body">
-                    <canvas id="rainSensorChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-
-
+>
 
 <?php
 // Combine DHT11 temperature and humidity data into one array
@@ -64,8 +71,6 @@ $dht11CombinedHumidity = array_map(function ($data) {
     return $data['humidity'];
 }, $dht11CombinedData);
 
-
-
 // Data PHP untuk sensor MQ5
 $mq5Labels = $mq5Data->map(function ($data) {
     return $data->created_at->format('H:i:s');
@@ -73,12 +78,13 @@ $mq5Labels = $mq5Data->map(function ($data) {
 $mq5Values = $mq5Data->pluck('value')->toArray();
 
 // Data PHP untuk sensor Rain Sensor
-$rainSensorLabels = $rainSensorData->map(function ($data) {
-    return $data->created_at->format('H:i:s');
-})->toArray();
-$rainSensorValues = $rainSensorData->pluck('value')->toArray();
-?>
+$latestRainSensorValue = $rainSensorData->last()->value;
+$rainSensorStatus = $latestRainSensorValue == 1 ? 'No Rain' : 'Raining';
 
+// Data PHP untuk status kebocoran gas
+$latestMQ5Value = $mq5Data->last()->value;
+$gasLeakStatus = $latestMQ5Value > 300 ? 'Gas Leak Detected' : 'No Gas Leak';
+?>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -143,24 +149,6 @@ $rainSensorValues = $rainSensorData->pluck('value')->toArray();
         }
     };
 
-    // Konfigurasi grafik Rain Sensor
-    var rainSensorConfig = {
-        type: 'bar',
-        data: {
-            labels: <?php echo json_encode($rainSensorLabels); ?>,
-            datasets: [{
-                label: 'Intensitas Hujan',
-                backgroundColor: 'rgba(0, 0, 0, 0.2)',
-                borderColor: 'rgba(0, 0, 0, 1)',
-                data: <?php echo json_encode($rainSensorValues); ?>,
-                fill: false,
-            }]
-        },
-        options: {
-            // Konfigurasi grafik Rain Sensor
-        }
-    };
-
     // Render grafik
     var dht11CombinedCtx = document.getElementById('dht11CombinedChart').getContext('2d');
     new Chart(dht11CombinedCtx, dht11CombinedConfig);
@@ -168,8 +156,11 @@ $rainSensorValues = $rainSensorData->pluck('value')->toArray();
     var mq5Ctx = document.getElementById('mq5Chart').getContext('2d');
     new Chart(mq5Ctx, mq5Config);
 
-    var rainSensorCtx = document.getElementById('rainSensorChart').getContext('2d');
-    new Chart(rainSensorCtx, rainSensorConfig);
+    // Set rain sensor status
+    document.getElementById('rainSensorStatus').innerText = <?php echo json_encode($rainSensorStatus); ?>;
+
+    // Set gas leak status
+    document.getElementById('gasLeakStatus').innerText = <?php echo json_encode($gasLeakStatus); ?>;
 </script>
 
 <style>
@@ -178,7 +169,7 @@ $rainSensorValues = $rainSensorData->pluck('value')->toArray();
     }
 
     .iq-card {
-        border: 1px solid #ddd;
+        border: 1px solid #fdfdfd;
         border-radius: 10px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
@@ -189,9 +180,17 @@ $rainSensorValues = $rainSensorData->pluck('value')->toArray();
 
     .card-title {
         margin: 15px;
-        font-size: 18px;
+        font-size: 25px;
         font-weight: bold;
         text-align: center;
+    }
+
+    .status-card {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        color: #000000;
+        margin-top: 10px;
     }
 </style>
 
