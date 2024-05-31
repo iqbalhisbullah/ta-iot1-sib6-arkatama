@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <h4 class="text-white card-title">Password Confirmation</h4>
                                 <input name="password_confirmation" type="password" class="mb-0 form-control" id="password_confirmation"
-                                    placeholder="Password">
+                                    placeholder="Password Confirmation">
                             </div>
                             <div class="d-inline-block w-100">
                                 <button type="submit" class="float-right mb-3 btn btn-danger">Sign Up</button>
