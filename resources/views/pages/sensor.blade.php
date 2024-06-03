@@ -72,7 +72,7 @@ $dht11CombinedHumidity = array_map(function ($data) {
 }, $dht11CombinedData);
 
 $mq5Array = $mq5Data->toArray();
-$mq5Slice = array_slice($mq5Array, -15); // Ambil hanya 15 data terakhir
+$mq5Slice = array_slice($mq5Array, -10); // Ambil hanya 10 data terakhir
 $mq5Labels = array_map(function ($data) {
     return \Carbon\Carbon::parse($data['created_at'])->format('H:i:s');
 }, $mq5Slice);
