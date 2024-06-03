@@ -44,10 +44,8 @@
         </div>
     </div>
 </div>
->
 
 <?php
-// Combine DHT11 temperature and humidity data into one array
 $dht11CombinedData = [];
 foreach ($dht11Datatemp as $index => $data) {
     $dht11CombinedData[] = [
@@ -58,7 +56,6 @@ foreach ($dht11Datatemp as $index => $data) {
     ];
 }
 
-// Extract labels and values for the combined data
 $dht11CombinedLabels = array_map(function ($data) {
     return $data['time'];
 }, $dht11CombinedData);
@@ -71,19 +68,16 @@ $dht11CombinedHumidity = array_map(function ($data) {
     return $data['humidity'];
 }, $dht11CombinedData);
 
-// Data PHP untuk sensor MQ5
 $mq5Labels = $mq5Data->map(function ($data) {
     return $data->created_at->format('H:i:s');
 })->toArray();
 $mq5Values = $mq5Data->pluck('value')->toArray();
 
-// Data PHP untuk sensor Rain Sensor
 $latestRainSensorValue = $rainSensorData->last()->value;
-$rainSensorStatus = $latestRainSensorValue == 1 ? 'No Rain' : 'Raining';
+$rainSensorStatus = $latestRainSensorValue == 1 ? 'No Rain' : 'Raining!!!';
 
-// Data PHP untuk status kebocoran gas
 $latestMQ5Value = $mq5Data->last()->value;
-$gasLeakStatus = $latestMQ5Value > 300 ? 'Gas Leak Detected' : 'No Gas Leak';
+$gasLeakStatus = $latestMQ5Value > 300 ? 'Gas Leak Detected!!!' : 'No Gas Leak';
 ?>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -131,7 +125,6 @@ $gasLeakStatus = $latestMQ5Value > 300 ? 'Gas Leak Detected' : 'No Gas Leak';
     }
 };
 
-    // Konfigurasi grafik MQ5
     var mq5Config = {
         type: 'bar',
         data: {
@@ -149,17 +142,13 @@ $gasLeakStatus = $latestMQ5Value > 300 ? 'Gas Leak Detected' : 'No Gas Leak';
         }
     };
 
-    // Render grafik
     var dht11CombinedCtx = document.getElementById('dht11CombinedChart').getContext('2d');
     new Chart(dht11CombinedCtx, dht11CombinedConfig);
 
     var mq5Ctx = document.getElementById('mq5Chart').getContext('2d');
     new Chart(mq5Ctx, mq5Config);
 
-    // Set rain sensor status
     document.getElementById('rainSensorStatus').innerText = <?php echo json_encode($rainSensorStatus); ?>;
-
-    // Set gas leak status
     document.getElementById('gasLeakStatus').innerText = <?php echo json_encode($gasLeakStatus); ?>;
 </script>
 
