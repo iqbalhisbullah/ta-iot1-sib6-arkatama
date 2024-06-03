@@ -56,6 +56,9 @@ foreach ($dht11Datatemp as $index => $data) {
     ];
 }
 
+// Ambil hanya 10 data terakhir
+$dht11CombinedData = array_slice($dht11CombinedData, -10);
+
 $dht11CombinedLabels = array_map(function ($data) {
     return $data['time'];
 }, $dht11CombinedData);
@@ -68,10 +71,13 @@ $dht11CombinedHumidity = array_map(function ($data) {
     return $data['humidity'];
 }, $dht11CombinedData);
 
-$mq5Labels = $mq5Data->map(function ($data) {
-    return $data->created_at->format('H:i:s');
-})->toArray();
-$mq5Values = $mq5Data->pluck('value')->toArray();
+$mq5Array = $mq5Data->toArray();
+$mq5Slice = array_slice($mq5Array, -15); // Ambil hanya 15 data terakhir
+$mq5Labels = array_map(function ($data) {
+    return \Carbon\Carbon::parse($data['created_at'])->format('H:i:s');
+}, $mq5Slice);
+$mq5Values = array_column($mq5Slice, 'value');
+
 
 $latestRainSensorValue = $rainSensorData->last()->value;
 $rainSensorStatus = $latestRainSensorValue == 1 ? 'No Rain' : 'Raining!!!';
