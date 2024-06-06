@@ -10,7 +10,7 @@ Route::get('/', function () {
 })->name('landing');
 
 
-Route::get('/users', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('users');
+Route::get('/users', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('user');
 Route::get('/sensor', [DatasensorController::class, 'index'])->middleware(['auth', 'verified'])->name('sensor.index');
 Route::get('leds', [LedController::class, 'index'])->middleware(['auth', 'verified'])->name('led.index');
 Route::post('/leds/{id}/toggle', [LedController::class, 'toggleStatus'])->name('toggleStatus');
