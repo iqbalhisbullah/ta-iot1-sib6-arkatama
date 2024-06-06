@@ -81,7 +81,7 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
         <div class="container" data-aos="zoom-out" data-aos-delay="100">
-            <h1>Welcome to <span>QbalTech</span></h1>
+            <h1>Welcome to <span>Qbaltech</span></h1>
             <h2>Your Ultimate IoT Web Monitoring Solution</h2>
             @if (Auth::check())
             <div class="d-flex">
