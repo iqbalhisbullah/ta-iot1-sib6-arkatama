@@ -79,11 +79,12 @@ $mq5Labels = array_map(function ($data) {
 $mq5Values = array_column($mq5Slice, 'value');
 
 
-$latestRainSensorValue = $rainSensorData->last()->value;
+$latestRainSensorValue = $rainSensorData->isEmpty() ? null : $rainSensorData->last()->value;
 $rainSensorStatus = $latestRainSensorValue == 1 ? 'No Rain' : 'Raining!!!';
 
-$latestMQ5Value = $mq5Data->last()->value;
+$latestMQ5Value = $mq5Data->isEmpty() ? null : $mq5Data->last()->value;
 $gasLeakStatus = $latestMQ5Value > 300 ? 'Gas Leak Detected!!!' : 'No Gas Leak';
+
 ?>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

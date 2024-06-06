@@ -45,15 +45,18 @@ class DatasensorController extends Controller
         $rainSensorData = Datasensor::where('sensor_type', 'RainSensor')->get();
         $title = 'Sensor Monitoring';
 
-        // Cek kebocoran gas dan kirim notifikasi jika diperlukan
-        $latestMQ5Value = $mq5Data->last()->value;
-        if ($latestMQ5Value > 300) {
-            $this->sendWhatsAppNotification("Gas Leak Detected!!!\nValue : $latestMQ5Value ppm");
+        // Cek apakah $mq5Data tidak kosong sebelum mencoba mengakses nilai terakhirnya
+        if (!$mq5Data->isEmpty()) {
+            $latestMQ5Value = $mq5Data->last()->value;
+            if ($latestMQ5Value > 300) {
+                $this->sendWhatsAppNotification("Gas Leak Detected!!!\nValue : $latestMQ5Value ppm");
+            }
         }
 
         // Kirim data ke view
         return view('pages.sensor', compact('dht11Datatemp', 'dht11Datahumd', 'mq5Data', 'rainSensorData', 'title'));
     }
+
 
     public function indexx()
     {
