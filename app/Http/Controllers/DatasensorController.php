@@ -40,16 +40,20 @@ class DatasensorController extends Controller
     {
         // Ambil data dari database
         $dht11Datatemp = Datasensor::where('sensor_type', 'DHT11temp')->get();
-        $dht11Datahumd= Datasensor::where('sensor_type', 'DHT11humd')->get();
+        $dht11Datahumd = Datasensor::where('sensor_type', 'DHT11humd')->get();
         $mq5Data = Datasensor::where('sensor_type', 'MQ5')->get();
         $rainSensorData = Datasensor::where('sensor_type', 'RainSensor')->get();
         $title = 'Sensor Monitoring';
 
         // Cek apakah $mq5Data tidak kosong sebelum mencoba mengakses nilai terakhirnya
         if (!$mq5Data->isEmpty()) {
-            $latestMQ5Value = $mq5Data->last()->value;
+            $latestMQ5Data = $mq5Data->last();
+            $latestMQ5Value = $latestMQ5Data->value;
+            $latestMQ5Datetime = $latestMQ5Data->created_at; // Asumsikan kolom datetime bernama 'created_at'
+
             if ($latestMQ5Value > 300) {
-                $this->sendWhatsAppNotification("Gas Leak Detected!!!\nValue : $latestMQ5Value ppm");
+                $message = "Gas Leak Detected!!!\nValue : $latestMQ5Value ppm\nDatetime : $latestMQ5Datetime";
+                $this->sendWhatsAppNotification($message);
             }
         }
 
