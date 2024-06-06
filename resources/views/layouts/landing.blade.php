@@ -65,7 +65,6 @@
                     {{-- cek apakah sudah login --}}
                     @if (Auth::check())
                         {{-- jika sudah tampilkan menu dashbord dan logout --}}
-                        <li><a class="nav-link scrollto" href="{{ route('sensor.index') }}">Return to Activity</a></li>
                         <li><a class="nav-link scrollto " href="{{ route('logout') }}">Logout</a></li>
                     @else
                         {{-- Jika belum tampilkan register dan login --}}
