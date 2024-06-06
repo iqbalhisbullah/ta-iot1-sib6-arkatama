@@ -56,8 +56,8 @@ foreach ($dht11Datatemp as $index => $data) {
     ];
 }
 
-// Ambil hanya 10 data terakhir
-$dht11CombinedData = array_slice($dht11CombinedData, -10);
+// Ambil hanya 20 data terakhir
+$dht11CombinedData = array_slice($dht11CombinedData, -20);
 
 $dht11CombinedLabels = array_map(function ($data) {
     return $data['time'];
@@ -72,7 +72,7 @@ $dht11CombinedHumidity = array_map(function ($data) {
 }, $dht11CombinedData);
 
 $mq5Array = $mq5Data->toArray();
-$mq5Slice = array_slice($mq5Array, -10); // Ambil hanya 10 data terakhir
+$mq5Slice = array_slice($mq5Array, -20); // Ambil hanya 20 data terakhir
 $mq5Labels = array_map(function ($data) {
     return \Carbon\Carbon::parse($data['created_at'])->format('H:i:s');
 }, $mq5Slice);
