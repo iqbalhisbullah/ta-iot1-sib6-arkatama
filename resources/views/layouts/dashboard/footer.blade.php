@@ -2,7 +2,7 @@
     <div class="container-fluid">
        <div class="row">
           <div class="col-lg-6">
-             Copyright 2024 <a href="#">Qbal</a> All Rights Reserved.
+             Copyright 2024 <a href="#">Qbaltech</a> All Rights Reserved.
           </div>
        </div>
     </div>
